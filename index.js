@@ -15,8 +15,8 @@ app.get('/', (req, res) => {
 });
 
 https.createServer({
-      key: fs.readFileSync(config.get('privateServerOptions').sslKeyFilename),
-      cert: fs.readFileSync(config.get('privateServerOptions').sslCertFilename)
+      key: fs.readFileSync(path.join(__dirname, config.get('privateServerOptions').sslKeyFilename)),
+      cert: fs.readFileSync(path.join(config.get('privateServerOptions').sslCertFilename))
     },
     app
   )
