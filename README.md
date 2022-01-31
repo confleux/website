@@ -1,2 +1,2 @@
-check out **https://confleux.com** right now
+check out **confleux.com** right now
 
