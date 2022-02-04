@@ -1,11 +1,16 @@
 'use strict';
 
-const express = require('express');
-const https = require('https');
-const http = require('http');
-const fs = require('fs');
-const path = require('path');
-const config = require('./lib/config.js');
+import express from 'express';
+import https from 'https';
+import http from 'http';
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+import config from './lib/config.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 
@@ -22,9 +27,9 @@ app.get('/', (req, res) => {
 });
 
 https.createServer(options, app).listen(httpsPort, () => {
-    console.log(`App https started on port ${httpsPort}`);
+  console.log(`https started on port ${httpsPort}`);
 });
 
-http.createServer(options, app).listen(httpPort, () => {
-    console.log(`App http started on port ${httpPort}`);
+http.createServer(app).listen(httpPort, () => {
+  console.log(`http started on port ${httpPort}`);
 });
