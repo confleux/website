@@ -4,11 +4,13 @@ WORKDIR /usr/src/app
 
 COPY package*.json ./
 
-RUN npm i 
+RUN npm install 
 
-COPY . .
+COPY . ./
 
-EXPOSE 443
+COPY server.key ./
+COPY server.cert ./
+
 EXPOSE 80
 
 CMD ["node", "index.js"]

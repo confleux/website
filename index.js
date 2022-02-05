@@ -18,8 +18,8 @@ const httpsPort = config.get('publicServerOptions').httpsPort;
 const httpPort = config.get('publicServerOptions').httpPort;
 
 const options = {
-  key: fs.readFileSync(path.join(__dirname, config.get('privateServerOptions').sslKeyFilename)),
-  cert: fs.readFileSync(path.join(__dirname, config.get('privateServerOptions').sslCertFilename))
+  key: fs.readFileSync(path.join(config.get('privateServerOptions').sslKeyPath)),
+  cert: fs.readFileSync(path.join(config.get('privateServerOptions').sslCertPat))
 }
 
 app.get('/', (req, res) => {
