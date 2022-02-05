@@ -8,9 +8,6 @@ RUN npm install
 
 COPY . ./
 
-COPY server.key ./
-COPY server.cert ./
-
 EXPOSE 80
 
 CMD ["node", "index.js"]
