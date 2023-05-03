@@ -1,2 +1,1 @@
-check out **confleux.com** right now
-
+Simple personal website for me
